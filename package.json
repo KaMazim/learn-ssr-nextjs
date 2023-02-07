@@ -1,0 +1,26 @@
+{
+    "name": "learn-ssr-nextjs",
+    "version": "1.0.0",
+    "description": "Project built to learn Server-Side Rendering (SSR) with Next.js",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KaMazim/learn-ssr-nextjs.git"
+    },
+    "author": "KaMazim",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/KaMazim/learn-ssr-nextjs/issues"
+    },
+    "homepage": "https://github.com/KaMazim/learn-ssr-nextjs#readme",
+    "dependencies": {
+        "next": "^13.1.6",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    }
+}
