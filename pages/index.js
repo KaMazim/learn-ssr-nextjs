@@ -1,26 +1,28 @@
-import data from './api/data.json';
-
-import Card from './Card';
-
+import React from 'react';
 import styles from './index.module.css';
+import Card from './Card';
+import { initStore, initialCards, addItem } from '../src/store';
 
-const Index = ({ cards }) => {
-    return (
-        <div className={styles.app}>
-            <header className={styles.header}>
-                <img src='/logo.png' className={styles.logo} alt='logo' />
-            </header>
-            <div className={styles.grid}>
-                {cards.map((card) => (
-                    <Card key={card.id} />
-                ))}
+class Index extends React.Component {
+    static async getInitialProps({ store }) {
+        return store.dispatch(initialCards());
+    }
+
+    render() {
+        return (
+            <div className={styles.app}>
+                <header className={styles.header}>
+                    <img src='/logo.png' className={styles.logo} alt='logo' />
+                </header>
+                <div className={styles.grid}>
+                    {this.props.cards.map((card) => (
+                        <Card key={card.id} />
+                    ))}
+                </div>
+                {/* <button onClick={() => dispatch(addItem())}></button> */}
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
-Index.getInitialProps = async () => {
-    return { cards: data };
-};
-
-export default Index;
+export default initStore.withRedux(Index);
